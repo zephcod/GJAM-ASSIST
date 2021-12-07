@@ -21,8 +21,8 @@ createLedgerPdf({
           return Header(
             level: 0,
             // margin: const EdgeInsets.only(bottom: 3.0 * PdfPageFormat.mm),
-          padding: const EdgeInsets.only(bottom: 3.0 * PdfPageFormat.mm),
-            
+            padding: const EdgeInsets.only(bottom: 3.0 * PdfPageFormat.mm),
+
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -34,16 +34,14 @@ createLedgerPdf({
                 SizedBox(height: 10),
                 Text('$startDate to $endDate'),
                 Container(
-                  padding: const EdgeInsets.only(top: 0.5 * PdfPageFormat.cm),
-                  child:
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text('Opening balance: $openingBalance'),
-                  Text('Closing balance: $closingBalance')
-                ],
-              )
-              ),
+                    padding: const EdgeInsets.only(top: 0.5 * PdfPageFormat.cm),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text('Opening balance: $openingBalance'),
+                        Text('Closing balance: $closingBalance')
+                      ],
+                    )),
               ],
             ),
           );
@@ -53,35 +51,32 @@ createLedgerPdf({
           margin: const EdgeInsets.only(bottom: 3.0 * PdfPageFormat.mm),
           padding: const EdgeInsets.only(bottom: 3.0 * PdfPageFormat.mm),
           decoration: const BoxDecoration(
-              border:
-                  BoxBorder(bottom: true, width: 0.5, color: PdfColors.grey)),
+              border: Border(
+                  bottom: BorderSide(width: 0.5, color: PdfColors.grey))),
           child: Column(
             children: <Widget>[
               Container(
                 child: Text(companyName),
               ),
               Container(
-                  padding: const EdgeInsets.only(top: 0.3 * PdfPageFormat.cm),
-                  child:  Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text('$partyName'),
-                  Text('Ledger Account: $startDate to $endDate')
-                ],
-              ),
-
+                padding: const EdgeInsets.only(top: 0.3 * PdfPageFormat.cm),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text('$partyName'),
+                    Text('Ledger Account: $startDate to $endDate')
+                  ],
+                ),
               ),
               Container(
-                  padding: const EdgeInsets.only(top: 0.3* PdfPageFormat.cm),
-                  child:
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text('Opening balance: $openingBalance'),
-                  Text('Closing balance: $closingBalance')
-                ],
-              )
-              ),
+                  padding: const EdgeInsets.only(top: 0.3 * PdfPageFormat.cm),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text('Opening balance: $openingBalance'),
+                      Text('Closing balance: $closingBalance')
+                    ],
+                  )),
               // Table.fromTextArray(context: context, data: [
               //   [
               //     'Date',
@@ -98,19 +93,20 @@ createLedgerPdf({
       },
       footer: (Context context) {
         return Container(
-            // alignment: Alignment.centerRight,
-            margin: const EdgeInsets.only(top: 1.0 * PdfPageFormat.cm),
-            child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget> [
-            Text('Generated using GJAMAssist',  style: TextStyle(color: PdfColors.purple400, font: Font.timesItalic())),
-            Text('Page ${context.pageNumber} of ${context.pagesCount}',
-                style: Theme.of(context)
-                    .defaultTextStyle
-                    .copyWith(color: PdfColors.grey))
-          ]
-        ),
-                    );
+          // alignment: Alignment.centerRight,
+          margin: const EdgeInsets.only(top: 1.0 * PdfPageFormat.cm),
+          child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Text('Generated using GJAMAssist',
+                    style: TextStyle(
+                        color: PdfColors.purple400, font: Font.timesItalic())),
+                Text('Page ${context.pageNumber} of ${context.pagesCount}',
+                    style: Theme.of(context)
+                        .defaultTextStyle
+                        .copyWith(color: PdfColors.grey))
+              ]),
+        );
       },
       build: (Context context) => <Widget>[
         SizedBox(height: 30),

@@ -51,8 +51,8 @@ createInvoicePdf({
             margin: const EdgeInsets.only(bottom: 3.0 * PdfPageFormat.mm),
             padding: const EdgeInsets.only(bottom: 3.0 * PdfPageFormat.mm),
             decoration: const BoxDecoration(
-                border:
-                    BoxBorder(bottom: true, width: 0.5, color: PdfColors.grey)),
+                border: Border(
+                    bottom: BorderSide(width: 0.5, color: PdfColors.grey))),
             child: Text('GJAMAssist',
                 style: Theme.of(context)
                     .defaultTextStyle
